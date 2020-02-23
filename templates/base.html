@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body {
+		  margin: 0;
+		  font-family: "Lato", sans-serif;
+		}
+
+		.sidebar {
+		  margin: 0;
+		  padding: 0;
+		  width: 200px;
+		  background-color: #f1f1f1;
+		  position: fixed;
+		  height: 100%;
+		  overflow: auto;
+		  text-align: center;
+		}
+
+		.sidebar a {
+		  display: block;
+		  color: black;
+		  padding: 16px;
+		  text-decoration: none;
+		}
+		 
+		.sidebar a.active {
+		  background-color: #FFF140;
+		  color: white;
+		}
+
+		.sidebar a:hover:not(.active) {
+		  background-color: #519BFA;
+		  color: white;
+		}
+
+		div.content {
+		  margin-left: 200px;
+		  padding: 1px 16px;
+		  height: 1000px;
+		}
+
+		@media screen and (max-width: 700px) {
+			
+		  .sidebar {
+		    width: 100%;
+		    height: auto;
+		    position: relative;
+		  }
+		  .sidebar a {float: left;}
+		  div.content {margin-left: 0;}
+				
+		}
+
+		@media screen and (max-width: 400px) {
+			
+		  .sidebar a {
+		    text-align: center;
+		    float: none;
+		  }
+		  
+		}
+
+	</style>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+	
+
+</head>
+
+<body>
+
+	<div class="sidebar" >
+		<a href="/">Home</a>
+		<a href="/">Login</a>
+		<a href="/">Meeting Schedule</a>
+		<a href="/">About</a>
+		
+	</div>
+	<div id="content", name="content", class="content">
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<header>
+					<h1>meetApp</h1>
+				</header>
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+	</div>
+
+	
+
+</body>
+</html>
